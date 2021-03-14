@@ -1,44 +1,42 @@
-﻿from tkinter import * 
-from tkinter import messagebox
-from time import sleep as sp
+﻿from tkinter import * #This is visual so using tkinter
+from tkinter import messagebox #show if you won or lost
 from random import choice #Pick AI's RPS choice 
 root = Tk()
-root.iconphoto("icon.")
 root.title("Rock Paper Scissors")
 rps = choice(["rock","paper","scissors"])
 win = False
-#title(root, "RPS")
-def r():
-    if rps == "scissors":
+
+def r(): #rock
+    if rps == "scissors": #rock beats scissors
         win = True
-        #print("Yay you won and the CPU outputted " + rps)
-        messagebox.showinfo("Winner!", "Congradulations! You won! The CPU's guess was " + rps + ".")
+   
+        messagebox.showinfo("Winner!", "Congradulations! You won! The CPU's guess was " + rps + ".") #winning screen
         exit()
     else:
-        messagebox.showerror("You lost!", "Aww, looks like you lost. the CPU's guess was " + rps + ". Better luck next time.")
+        messagebox.showerror("You lost!", "Aww, looks like you lost. the CPU's guess was " + rps + ". Better luck next time.") #losing screen
         exit()
-def p():
-    if rps == "rock":
+def p(): #paper
+    if rps == "rock": #paper beats rock
         win = True
-        #print("Yay you won and the CPU outputted " + rps)
-        messagebox.showinfo("Winner!", "Congradulations! You won! The CPU's guess was " + rps + ".")
+     
+        messagebox.showinfo("Winner!", "Congradulations! You won! The CPU's guess was " + rps + ".") #winning screen
+        exit()
+    else: 
+        messagebox.showerror("You lost!", "Aww, looks like you lost. the CPU's guess was " + rps + ". Better luck next time.") #losing screen
+        exit()
+def s(): #scissors
+    if rps == "paper": #scissors beats paper
+        win = True
+       
+        messagebox.showinfo("Winner!", "Congradulations! You won! The CPU's guess was " + rps + ".") #winning screen
         exit()
     else:
-        messagebox.showerror("You lost!", "Aww, looks like you lost. the CPU's guess was " + rps + ". Better luck next time.")
-        exit()
-def s():
-    if rps == "paper":
-        win = True
-        #print("Yay you won and the CPU outputted " + rps)
-        messagebox.showinfo("Winner!", "Congradulations! You won! The CPU's guess was " + rps + ".")
-        exit()
-    else:
-        messagebox.showerror("You lost!", "Aww, looks like you lost. the CPU's guess was " + rps + ". Better luck next time.")
+        messagebox.showerror("You lost!", "Aww, looks like you lost. the CPU's guess was " + rps + ". Better luck next time.") #losing screen
         exit()
 
-welcome = Label(root, text="Welcome to rock paper scissors.\nThe computer has already chosen so you can choose right now.")
+welcome = Label(root, text="Welcome to rock paper scissors.") #welcome label
 welcome.pack()
-Rock = Button(root, text="Rock", padx=100, command=r)
+Rock = Button(root, text="Rock", padx=100, command=r) #buttons
 Rock.pack()
 Paper = Button(root, text="Paper", padx=100, command=p)
 Paper.pack()
